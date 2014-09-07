@@ -69,6 +69,8 @@
             if (selection != nil) {
                 if (selection.length > 0) {
                     NSLog(@"text :: pos :: %i :: %@", 0, selection);
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selection" message:[NSString stringWithFormat:@"Selected: '%@'", selection] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
                 }
             }
         };
@@ -78,6 +80,8 @@
             if (selectedDate != nil) {
                 if (selectedDate.description.length > 0) {
                     NSLog(@"date :: pos :: %i :: %@", 0, selectedDate.description);
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selection" message:[NSString stringWithFormat:@"Selected: '%@'", selectedDate.description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
                 }
             }
         };

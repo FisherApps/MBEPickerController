@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4D6E11A119BA893800012414"
-               BuildableName = "MBEActionSheetPicker.app"
+               BuildableName = "MBEPickerViewController.app"
                BlueprintName = "MBEPickerViewController"
                ReferencedContainer = "container:MBEPickerViewController.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4D6E11A119BA893800012414"
-            BuildableName = "MBEActionSheetPicker.app"
+            BuildableName = "MBEPickerViewController.app"
             BlueprintName = "MBEPickerViewController"
             ReferencedContainer = "container:MBEPickerViewController.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4D6E11A119BA893800012414"
-            BuildableName = "MBEActionSheetPicker.app"
+            BuildableName = "MBEPickerViewController.app"
             BlueprintName = "MBEPickerViewController"
             ReferencedContainer = "container:MBEPickerViewController.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4D6E11A119BA893800012414"
-            BuildableName = "MBEActionSheetPicker.app"
+            BuildableName = "MBEPickerViewController.app"
             BlueprintName = "MBEPickerViewController"
             ReferencedContainer = "container:MBEPickerViewController.xcodeproj">
          </BuildableReference>
