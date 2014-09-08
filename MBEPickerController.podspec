@@ -7,8 +7,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Mark Evans' => 'mark@3advance.com' }
   s.source       = { :git => 'https://github.com/mevansjr/MBEPickerController.git', :tag => '0.2' }
-
   s.platform     = :ios, '7.0'
   s.source_files = 'MBEPickerController/*.{h,m}'
+  s.resources = 'MBEPickerController/*.xib'
   s.requires_arc = false
 end
