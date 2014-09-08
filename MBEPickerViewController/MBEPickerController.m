@@ -190,14 +190,17 @@
 - (IBAction)select:(id)sender {
     if (!self.isBeingDismissed || !self.isBeingPresented) {
         [self dismissViewControllerAnimated:YES completion:^{
-            NSLog(@"selection: %@", selection);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                _select(selection);
-            });
-            NSLog(@"dateSelection: %@", dateSelection);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                _selectDate(dateSelection);
-            });
+            if (_pickerTypeState == PickerTypeText) {
+                NSLog(@"selection: %@", selection);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    _select(selection);
+                });
+            } else {
+                NSLog(@"dateSelection: %@", dateSelection);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    _selectDate(dateSelection);
+                });
+            }
         }];
     }
 }

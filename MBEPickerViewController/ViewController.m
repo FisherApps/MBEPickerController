@@ -64,27 +64,31 @@
         // Set Picker Date if present
         [pickerController setDate:[NSDate dateWithTimeIntervalSince1970:[NSDate date].timeIntervalSince1970 - (86400 * 2)]];
         
-        // Block to return Text Selection
-        pickerController.select =  ^(NSString *selection) {
-            if (selection != nil) {
-                if (selection.length > 0) {
-                    NSLog(@"text :: pos :: %i :: %@", 0, selection);
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selection" message:[NSString stringWithFormat:@"Selected: '%@'", selection] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [alert show];
-                }
-            }
-        };
         
-        // Block to return Date/Time Selection
-        pickerController.selectDate =  ^(NSDate *selectedDate) {
-            if (selectedDate != nil) {
-                if (selectedDate.description.length > 0) {
-                    NSLog(@"date :: pos :: %i :: %@", 0, selectedDate.description);
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selection" message:[NSString stringWithFormat:@"Selected: '%@'", selectedDate.description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [alert show];
+        if (segControl.selectedSegmentIndex == 0) {
+            // Block to return Text Selection
+            pickerController.select =  ^(NSString *selection) {
+                if (selection != nil) {
+                    if (selection.length > 0) {
+                        NSLog(@"text :: pos :: %i :: %@", 0, selection);
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selection" message:[NSString stringWithFormat:@"Selected: '%@'", selection] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
                 }
-            }
-        };
+            };
+        }
+        else {
+            // Block to return Date/Time Selection
+            pickerController.selectDate =  ^(NSDate *selectedDate) {
+                if (selectedDate != nil) {
+                    if (selectedDate.description.length > 0) {
+                        NSLog(@"date :: pos :: %i :: %@", 0, selectedDate.description);
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selection" message:[NSString stringWithFormat:@"Selected: '%@'", selectedDate.description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                }
+            };
+        }
         
         // Present Custom Pickers
         [self presentViewController:pickerController animated:YES completion:nil];
