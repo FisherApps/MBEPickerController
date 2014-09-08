@@ -10,5 +10,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.source_files = 'MBEPickerController/*.{h,m}'
   s.resources = 'MBEPickerController/**/*.xib'
+  s.frameworks = 'Foundation', 'UIKit'
   s.requires_arc = false
 end
