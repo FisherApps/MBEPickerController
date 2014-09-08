@@ -62,7 +62,8 @@
         [pickerController setText:@"Test 2"];
         
         // Set Picker Date if present
-        [pickerController setDate:[NSDate dateWithTimeIntervalSince1970:[NSDate date].timeIntervalSince1970 - (86400 * 2)]];
+        [pickerController setDate:[NSDate date]];
+        //[pickerController setDate:[NSDate dateWithTimeIntervalSince1970:[NSDate date].timeIntervalSince1970 - (86400 * 2)]];
         
         
         if (segControl.selectedSegmentIndex == 0) {
