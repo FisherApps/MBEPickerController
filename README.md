@@ -1,13 +1,13 @@
 
-## MBEPickerViewController
+## MBEPickerController
 =================
 
-## MBEPickerViewController - Text
+## MBEPickerController - Text
 
 A custom view component that presents a `UIPickerView` with a simple list of options, 
 along with a toolbar for Select/Cancel and an optional faded backdrop view.
 
-## MBEPickerViewController - Date/Time/DateTime
+## MBEPickerController - Date/Time/DateTime
 
 A custom view component that presents a `UIDatePicker` with a toolbar for Select/Cancel.
 
@@ -19,7 +19,7 @@ Add the dependency to your `Podfile`:
 
 ```ruby
 platform :ios
-pod 'MBEPickerViewController'
+pod 'MBEPickerController'
 ...
 ```
 
@@ -28,7 +28,7 @@ Run `pod install` to install the dependencies.
 Next, import the header file wherever you want to use the picker:
 
 ```objc
-#import <MBEPickerViewController/MBEPickerViewController.h>
+#import <MBEPickerController/MBEPickerController.h>
 ```
 
 Finally, present the picker when necessary (say on a button touch handler):
