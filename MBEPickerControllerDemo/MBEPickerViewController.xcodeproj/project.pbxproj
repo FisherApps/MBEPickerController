@@ -12,8 +12,8 @@
 		4D6E11AE19BA893800012414 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E11AD19BA893800012414 /* ViewController.m */; };
 		4D6E11B319BA893800012414 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D6E11B219BA893800012414 /* Images.xcassets */; };
 		4D6E11CD19BB786000012414 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6E11CC19BB786000012414 /* ViewController.xib */; };
-		4D6E11D119BB814E00012414 /* MBEPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E11CF19BB814E00012414 /* MBEPickerController.m */; };
-		4D6E11D219BB814E00012414 /* MBEPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6E11D019BB814E00012414 /* MBEPickerController.xib */; };
+		4D82D3A619BDEA95003E912B /* MBEPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D82D3A419BDEA95003E912B /* MBEPickerController.m */; };
+		4D82D3A719BDEA95003E912B /* MBEPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D82D3A519BDEA95003E912B /* MBEPickerController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,9 +26,9 @@
 		4D6E11AD19BA893800012414 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4D6E11B219BA893800012414 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4D6E11CC19BB786000012414 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		4D6E11CE19BB814E00012414 /* MBEPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBEPickerController.h; sourceTree = "<group>"; };
-		4D6E11CF19BB814E00012414 /* MBEPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBEPickerController.m; sourceTree = "<group>"; };
-		4D6E11D019BB814E00012414 /* MBEPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBEPickerController.xib; sourceTree = "<group>"; };
+		4D82D3A319BDEA95003E912B /* MBEPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBEPickerController.h; sourceTree = "<group>"; };
+		4D82D3A419BDEA95003E912B /* MBEPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBEPickerController.m; sourceTree = "<group>"; };
+		4D82D3A519BDEA95003E912B /* MBEPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBEPickerController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +45,7 @@
 		4D6E119919BA893800012414 = {
 			isa = PBXGroup;
 			children = (
+				4D82D3A219BDEA95003E912B /* MBEPickerController */,
 				4D6E11A419BA893800012414 /* MBEPickerViewController */,
 				4D6E11A319BA893800012414 /* Products */,
 			);
@@ -66,9 +67,6 @@
 				4D6E11AC19BA893800012414 /* ViewController.h */,
 				4D6E11AD19BA893800012414 /* ViewController.m */,
 				4D6E11CC19BB786000012414 /* ViewController.xib */,
-				4D6E11CE19BB814E00012414 /* MBEPickerController.h */,
-				4D6E11CF19BB814E00012414 /* MBEPickerController.m */,
-				4D6E11D019BB814E00012414 /* MBEPickerController.xib */,
 				4D6E11B219BA893800012414 /* Images.xcassets */,
 				4D6E11A519BA893800012414 /* Supporting Files */,
 			);
@@ -82,6 +80,16 @@
 				4D6E11A719BA893800012414 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D82D3A219BDEA95003E912B /* MBEPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				4D82D3A319BDEA95003E912B /* MBEPickerController.h */,
+				4D82D3A419BDEA95003E912B /* MBEPickerController.m */,
+				4D82D3A519BDEA95003E912B /* MBEPickerController.xib */,
+			);
+			path = MBEPickerController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D6E11CD19BB786000012414 /* ViewController.xib in Resources */,
-				4D6E11D219BB814E00012414 /* MBEPickerController.xib in Resources */,
+				4D82D3A719BDEA95003E912B /* MBEPickerController.xib in Resources */,
 				4D6E11B319BA893800012414 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,9 +162,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D6E11D119BB814E00012414 /* MBEPickerController.m in Sources */,
 				4D6E11AE19BA893800012414 /* ViewController.m in Sources */,
 				4D6E11AB19BA893800012414 /* AppDelegate.m in Sources */,
+				4D82D3A619BDEA95003E912B /* MBEPickerController.m in Sources */,
 				4D6E11A819BA893800012414 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
