@@ -19,12 +19,23 @@
 
 @implementation MBEPickerController
 
-- (void)viewDidLoad {
+- (id)initWithViewController:(UIViewController*)vc
+{
+    MBEPickerController* picker = [self initWithNibName:@"MBEPickerController" bundle:nil];
     
+    // Account for iOS 8 & Under
+    if ([UIDevice currentDevice].systemVersion.floatValue < 8)
+        vc.modalPresentationStyle = UIModalPresentationCurrentContext;
+    else
+        picker.modalPresentationStyle = UIModalPresentationCustom;
+    
+    return picker;
+}
+
+
+- (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([UIDevice currentDevice].systemVersion.floatValue <= 7.1)
-        self.view.alpha = 0;
     
     switch (_pickerTypeState) {
         case PickerTypeText:
@@ -128,9 +139,9 @@
     
     pos = 0;
     
-    if (_date != nil) {
+    if (_selectDate != nil) {
         if (_datePickerView != nil) {
-            [_datePickerView setDate:_date];
+            [_datePickerView setDate:_selectDate];
         }
     }
     
@@ -152,12 +163,12 @@
         }
     }
     
-    if (_text != nil) {
-        if(_text.length > 0) {
+    if (_selectOption != nil) {
+        if(_selectOption.length > 0) {
             if (_pickerOptions != nil) {
                 if (_pickerOptions.count > 0) {
                     for (NSString *s in _pickerOptions) {
-                        if ([_text isEqualToString:s]) {
+                        if ([_selectOption isEqualToString:s]) {
                             if (_pickerView != nil)
                                 selection = _pickerOptions[pos];
                             [_pickerView selectRow:pos inComponent:0 animated:YES];
@@ -193,12 +204,12 @@
             if (_pickerTypeState == PickerTypeText) {
                 NSLog(@"selection: %@", selection);
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    _select(selection);
+                    _optionSelected(selection);
                 });
             } else {
                 NSLog(@"dateSelection: %@", dateSelection);
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    _selectDate(dateSelection);
+                    _dateSelected(dateSelection);
                 });
             }
         }];

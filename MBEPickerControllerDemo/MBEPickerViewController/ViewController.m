@@ -33,66 +33,41 @@
 - (IBAction)open:(id)sender {
     if (!self.isBeingPresented || !self.isBeingDismissed) {
         
-        // Create Custom Picker Instance
-        MBEPickerController *pickerController = [[MBEPickerController alloc] initWithNibName:@"MBEPickerController" bundle:nil];
-        
-        // Account for iOS 8 & Under
-        if ([UIDevice currentDevice].systemVersion.floatValue <= 7.1)
-            self.modalPresentationStyle = UIModalPresentationCurrentContext;
-        else
-            pickerController.modalPresentationStyle = UIModalPresentationCustom;
-        
-        // Set Picker Title if present
+        MBEPickerController *pickerController = [[MBEPickerController alloc] initWithViewController:self];
         [pickerController setPickerTitle:@"Test Title"];
-        
-        // Set 'Yes' for Date Picker
-        if (segControl.selectedSegmentIndex == 0)
-            [pickerController setPickerTypeState:PickerTypeText];
-        else if (segControl.selectedSegmentIndex == 1)
-            [pickerController setPickerTypeState:PickerTypeDate];
-        else if (segControl.selectedSegmentIndex == 2)
-            [pickerController setPickerTypeState:PickerTypeTime];
-        else
-            [pickerController setPickerTypeState:PickerTypeDateTime];
-        
-        // Set Array Options
+        [pickerController setPickerTypeState:PickerTypeText];
         [pickerController setPickerOptions:categories];
-        
-        // Set Picker Text if present
-        [pickerController setText:@"Test 2"];
-        
-        // Set Picker Date if present
-        [pickerController setDate:[NSDate date]];
-        //[pickerController setDate:[NSDate dateWithTimeIntervalSince1970:[NSDate date].timeIntervalSince1970 - (86400 * 2)]];
-        
-        
-        if (segControl.selectedSegmentIndex == 0) {
-            // Block to return Text Selection
-            pickerController.select =  ^(NSString *selection) {
-                if (selection != nil) {
-                    if (selection.length > 0) {
-                        NSLog(@"text :: pos :: %i :: %@", 0, selection);
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selection" message:[NSString stringWithFormat:@"Selected: '%@'", selection] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                        [alert show];
-                    }
+        [pickerController setSelectOption:@"Test 2"];
+        pickerController.optionSelected =  ^(NSString *option) {
+            if (option != nil) {
+                if (option.length > 0) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selection" message:[NSString stringWithFormat:@"Selected: '%@'", option] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
                 }
-            };
-        }
-        else {
-            // Block to return Date/Time Selection
-            pickerController.selectDate =  ^(NSDate *selectedDate) {
-                if (selectedDate != nil) {
-                    if (selectedDate.description.length > 0) {
-                        NSLog(@"date :: pos :: %i :: %@", 0, selectedDate.description);
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selection" message:[NSString stringWithFormat:@"Selected: '%@'", selectedDate.description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                        [alert show];
-                    }
-                }
-            };
-        }
-        
-        // Present Custom Pickers
+            }
+        };
         [self presentViewController:pickerController animated:YES completion:nil];
+        
+    }
+}
+
+- (IBAction)openDate:(id)sender {
+    if (!self.isBeingPresented || !self.isBeingDismissed) {
+        
+        MBEPickerController *pickerController = [[MBEPickerController alloc] initWithViewController:self];
+        [pickerController setPickerTitle:@"Test Date Title"];
+        [pickerController setPickerTypeState:PickerTypeDate];
+        [pickerController setSelectDate:[NSDate date]];
+        pickerController.dateSelected =  ^(NSDate *selectedDate) {
+            if (selectedDate != nil) {
+                if (selectedDate.description.length > 0) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selection" message:[NSString stringWithFormat:@"Selected: '%@'", selectedDate.description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+            }
+        };
+        [self presentViewController:pickerController animated:YES completion:nil];
+        
     }
 }
 

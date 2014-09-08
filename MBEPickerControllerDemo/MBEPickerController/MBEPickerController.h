@@ -18,10 +18,12 @@ typedef NSInteger PickerTypeInt;
 
 @interface MBEPickerController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
+- (id)initWithViewController:(UIViewController*)vc;
+
 @property (nonatomic, strong) NSMutableArray *pickerOptions;
 @property (nonatomic, strong) NSString *pickerTitle;
-@property (nonatomic, strong) NSString *text;
-@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSString *selectOption;
+@property (nonatomic, strong) NSDate *selectDate;
 @property (nonatomic, assign) PickerTypeInt pickerTypeState;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UIButton *cancelButton;
@@ -30,7 +32,7 @@ typedef NSInteger PickerTypeInt;
 @property (nonatomic, strong) IBOutlet UIView *pickerContainer;
 @property (nonatomic, strong) IBOutlet UIPickerView *pickerView;
 @property (nonatomic, strong) IBOutlet UIDatePicker *datePickerView;
-@property (nonatomic, copy) void (^select)(NSString *selection);
-@property (nonatomic, copy) void (^selectDate)(NSDate *selectedDate);
+@property (nonatomic, copy) void (^optionSelected)(NSString *selection);
+@property (nonatomic, copy) void (^dateSelected)(NSDate *selectedDate);
 
 @end
