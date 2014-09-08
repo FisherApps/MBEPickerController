@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Mark Evans' => 'mark@3advance.com' }
   s.source       = {
+    'MBEPickerController',
     :git => 'https://github.com/mevansjr/MBEPickerController.git',
     :tag => "#{s.version}"
   }
