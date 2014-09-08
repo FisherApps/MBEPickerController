@@ -1,13 +1,13 @@
 
 ## MBEPickerController
-=================
+________________________
 
-## MBEPickerController - Text
+## MBEPickerController - Text Picker
 
 A custom view component that presents a `UIPickerView` with a simple list of options, 
 along with a toolbar for Select/Cancel and an optional faded backdrop view.
 
-## MBEPickerController - Date/Time/DateTime
+## MBEPickerController - Date/Time/DateTime Picker
 
 A custom view component that presents a `UIDatePicker` with a toolbar for Select/Cancel.
 
