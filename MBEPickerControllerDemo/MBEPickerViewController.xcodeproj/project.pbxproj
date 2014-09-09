@@ -46,7 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				4D82D3A219BDEA95003E912B /* MBEPickerController */,
-				4D6E11A419BA893800012414 /* MBEPickerViewController */,
+				4D6E11A419BA893800012414 /* MBEPickerControllerDemo */,
 				4D6E11A319BA893800012414 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,7 +59,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4D6E11A419BA893800012414 /* MBEPickerViewController */ = {
+		4D6E11A419BA893800012414 /* MBEPickerControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
 				4D6E11A919BA893800012414 /* AppDelegate.h */,
@@ -70,7 +70,7 @@
 				4D6E11B219BA893800012414 /* Images.xcassets */,
 				4D6E11A519BA893800012414 /* Supporting Files */,
 			);
-			path = MBEPickerViewController;
+			path = MBEPickerControllerDemo;
 			sourceTree = "<group>";
 		};
 		4D6E11A519BA893800012414 /* Supporting Files */ = {
