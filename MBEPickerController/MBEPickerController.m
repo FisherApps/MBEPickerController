@@ -19,12 +19,26 @@
 
 @implementation MBEPickerController
 
+- (id)init
+{
+    MBEPickerController* picker = [self initWithNibName:@"MBEPickerController" bundle:nil];
+    return picker;
+}
+
+
+- (void)showInViewController:(UIViewController*)vc
+{
+    if ([UIDevice currentDevice].systemVersion.floatValue < 8)
+        vc.modalPresentationStyle = UIModalPresentationCurrentContext;
+    else
+        self.modalPresentationStyle = UIModalPresentationCustom;
+    
+    [vc presentViewController:self animated:YES completion:nil];
+    
+}
+
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    
-    if ([UIDevice currentDevice].systemVersion.floatValue <= 7.1)
-        self.view.alpha = 0;
     
     switch (_pickerTypeState) {
         case PickerTypeText:
@@ -128,9 +142,9 @@
     
     pos = 0;
     
-    if (_date != nil) {
+    if (_selectDate != nil) {
         if (_datePickerView != nil) {
-            [_datePickerView setDate:_date];
+            [_datePickerView setDate:_selectDate];
         }
     }
     
@@ -152,12 +166,12 @@
         }
     }
     
-    if (_text != nil) {
-        if(_text.length > 0) {
+    if (_selectOption != nil) {
+        if(_selectOption.length > 0) {
             if (_pickerOptions != nil) {
                 if (_pickerOptions.count > 0) {
                     for (NSString *s in _pickerOptions) {
-                        if ([_text isEqualToString:s]) {
+                        if ([_selectOption isEqualToString:s]) {
                             if (_pickerView != nil)
                                 selection = _pickerOptions[pos];
                             [_pickerView selectRow:pos inComponent:0 animated:YES];
@@ -193,12 +207,12 @@
             if (_pickerTypeState == PickerTypeText) {
                 NSLog(@"selection: %@", selection);
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    _select(selection);
+                    _optionSelected(selection);
                 });
             } else {
                 NSLog(@"dateSelection: %@", dateSelection);
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    _selectDate(dateSelection);
+                    _dateSelected(dateSelection);
                 });
             }
         }];
@@ -214,6 +228,16 @@
             NSLog(@"dateSelection: %@", dateSelection);
         }];
     }
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return NO;
 }
 
 @end

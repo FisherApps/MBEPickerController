@@ -18,7 +18,7 @@ typedef NSInteger PickerTypeInt;
 
 @interface MBEPickerController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
-- (id)initWithViewController:(UIViewController*)vc;
+- (void)showInViewController:(UIViewController*)vc;
 
 @property (nonatomic, strong) NSMutableArray *pickerOptions;
 @property (nonatomic, strong) NSString *pickerTitle;

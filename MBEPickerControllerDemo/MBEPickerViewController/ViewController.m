@@ -33,7 +33,7 @@
 - (IBAction)open:(id)sender {
     if (!self.isBeingPresented || !self.isBeingDismissed) {
         
-        MBEPickerController *pickerController = [[MBEPickerController alloc] initWithViewController:self];
+        MBEPickerController *pickerController = [[MBEPickerController alloc] init];
         [pickerController setPickerTitle:@"Test Title"];
         [pickerController setPickerTypeState:PickerTypeText];
         [pickerController setPickerOptions:categories];
@@ -46,7 +46,7 @@
                 }
             }
         };
-        [self presentViewController:pickerController animated:YES completion:nil];
+        [pickerController showInViewController:self];
         
     }
 }
@@ -54,7 +54,7 @@
 - (IBAction)openDate:(id)sender {
     if (!self.isBeingPresented || !self.isBeingDismissed) {
         
-        MBEPickerController *pickerController = [[MBEPickerController alloc] initWithViewController:self];
+        MBEPickerController *pickerController = [[MBEPickerController alloc] init];
         [pickerController setPickerTitle:@"Test Date Title"];
         [pickerController setPickerTypeState:PickerTypeDate];
         [pickerController setSelectDate:[NSDate date]];
@@ -66,7 +66,7 @@
                 }
             }
         };
-        [self presentViewController:pickerController animated:YES completion:nil];
+        [pickerController showInViewController:self];
         
     }
 }

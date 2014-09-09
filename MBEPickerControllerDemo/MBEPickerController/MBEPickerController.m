@@ -19,23 +19,26 @@
 
 @implementation MBEPickerController
 
-- (id)initWithViewController:(UIViewController*)vc
+- (id)init
 {
     MBEPickerController* picker = [self initWithNibName:@"MBEPickerController" bundle:nil];
-    
-    // Account for iOS 8 & Under
-    if ([UIDevice currentDevice].systemVersion.floatValue < 8)
-        vc.modalPresentationStyle = UIModalPresentationCurrentContext;
-    else
-        picker.modalPresentationStyle = UIModalPresentationCustom;
-    
     return picker;
 }
 
 
+- (void)showInViewController:(UIViewController*)vc
+{
+    if ([UIDevice currentDevice].systemVersion.floatValue < 8)
+        vc.modalPresentationStyle = UIModalPresentationCurrentContext;
+    else
+        self.modalPresentationStyle = UIModalPresentationCustom;
+    
+    [vc presentViewController:self animated:YES completion:nil];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     switch (_pickerTypeState) {
         case PickerTypeText:
@@ -225,6 +228,16 @@
             NSLog(@"dateSelection: %@", dateSelection);
         }];
     }
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return NO;
 }
 
 @end
