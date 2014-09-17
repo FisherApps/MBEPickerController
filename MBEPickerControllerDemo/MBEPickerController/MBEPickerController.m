@@ -14,6 +14,8 @@
     NSString *selection;
     BOOL isTime;
     int pos;
+    IBOutlet UIButton *tintButton;
+    UIView *bgView;
 }
 @end
 
@@ -22,19 +24,55 @@
 - (id)init
 {
     MBEPickerController* picker = [self initWithNibName:@"MBEPickerController" bundle:nil];
+    
+//    // Account for iOS 8 & Under
+//    if ([UIDevice currentDevice].systemVersion.floatValue < 8)
+//        vc.modalPresentationStyle = UIModalPresentationCurrentContext;
+//    else
+//        picker.modalPresentationStyle = UIModalPresentationCustom;
+//    
+//    return picker;
+    
+    
     return picker;
 }
 
 
 - (void)showInViewController:(UIViewController*)vc
 {
-    if ([UIDevice currentDevice].systemVersion.floatValue < 8)
+    [vc.view endEditing:YES];
+    //vc = ((UIWindow*)[[UIApplication sharedApplication].windows lastObject]).rootViewController;
+    
+    // Account for iOS 8 & Under
+    if ([UIDevice currentDevice].systemVersion.floatValue < 8) {
+//        for (UIViewController *v in self.navigationController.viewControllers) {
+//            v.modalPresentationStyle = UIModalPresentationCurrentContext;
+//        }
         vc.modalPresentationStyle = UIModalPresentationCurrentContext;
+    }
     else
         self.modalPresentationStyle = UIModalPresentationCustom;
     
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    bgView = [[UIView alloc] initWithFrame:screenRect];
+    bgView.backgroundColor = [UIColor blackColor];
+    bgView.alpha = 0.0;
+    bgView.userInteractionEnabled = NO;
+    
+    [vc.view addSubview:bgView];
+    
+    [UIView animateWithDuration:0.3 animations:^() {
+        bgView.alpha = 0.5;
+    } completion:^(BOOL finished){}];
+    
+    
     [vc presentViewController:self animated:YES completion:nil];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad {
@@ -84,6 +122,18 @@
         [UIView animateWithDuration:0.4 animations:^() {self.view.alpha = 1; self.view.frame = rect;}
                          completion:^(BOOL finished){}];
     }
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [UIView animateWithDuration:0.3 animations:^() {
+        bgView.alpha = 0.0;
+    } completion:^(BOOL finished){}];
+    
+//    tintButton.backgroundColor = [UIColor clearColor];
+//    tintButton.alpha = 1.0;
 }
 
 - (void)didReceiveMemoryWarning {
